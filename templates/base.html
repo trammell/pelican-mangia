@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
+
 <head>
         {% block head %}
         <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
@@ -36,6 +37,8 @@
         <header id="banner" class="body">
                 <h1><a href="{{ SITEURL }}/">{{ SITENAME }}{% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a></h1>
         </header><!-- /#banner -->
+
+	{% block menu %}
         <nav id="menu"><ul>
         {% for title, link in MENUITEMS %}
             <li><a href="{{ link }}">{{ title }}</a></li>
@@ -51,13 +54,17 @@
           {% endfor %}
         {% endif %}
         </ul></nav><!-- /#menu -->
-        {% block content %}
-        {% endblock %}
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="https://getpelican.com/">Pelican</a>,
-                which takes great advantage of <a href="https://www.python.org/">Python</a>.
-                </address><!-- /#about -->
-        </footer><!-- /#contentinfo -->
+	{% endblock menu %}
+
+{% block content %}
+{% endblock %}
+
+<footer id="contentinfo" class="body">
+<address id="about" class="vcard body">
+This site was built with <a href="https://getpelican.com/">Pelican</a>, using
+the <a href="https://github.com/trammell/pelican-mangia">Mangia</a> theme.
+</address>
+</footer>
+
 </body>
 </html>
