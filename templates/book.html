@@ -1,19 +1,20 @@
 {% extends "base.html" %}
 
-<head>
-<link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/{{ CSS_FILE }}" />
-</head>
+{% block head %}
+<title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" media="screen" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style.css" />
+{% endblock head %}
 
 {% block menu %}
 {% endblock menu %}
 
 {% block content %}
-<section id="content">
-{% block content_title %}
-<h2>All articles aaaaa</h2>
-{% endblock %}
-
-<ol id="post-list">
-</ol>
-</section>
+{% for article in articles %}
+<div class="recipe">
+<h1>{{ article.title }}</h1>
+{{ article.content }}
+<p style="clear:right;"></p>
+</div>
+{% endfor %}
 {% endblock content %}
