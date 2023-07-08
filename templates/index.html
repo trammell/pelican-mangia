@@ -1,10 +1,21 @@
 {% extends "base.html" %}
+
+<nav id="menu">
+	adjfahldkfjhaldkfjhaldjkhfljkh
+<ul>
+{% for title, link in MENUITEMS %}
+    <li><a href="{{ link }}">{{ title }}</a></li>
+{% endfor %}
+{% if DISPLAY_PAGES_ON_MENU %}
+    {% for p in pages %}
+<li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+    {% endfor %}
+{% endif %}
+</ul>
+</nav>
+
 {% block content %}
 <section id="content">
-{% block content_title %}
-<h2>All articles</h2>
-{% endblock %}
-
 <ol id="post-list">
 {% for article in articles_page.object_list %}
         <li><article class="hentry">
