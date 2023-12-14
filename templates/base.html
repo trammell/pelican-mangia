@@ -18,11 +18,11 @@
 <nav id="menu">
 <ul>
 {% for title, link in MENUITEMS %}
-    <li><a href="{{ link }}">{{ title }}</a></li>
+<li><a href="{{ SITEURL }}/{{ link }}">{{ title }}</a></li>
 {% endfor %}
 {% if DISPLAY_PAGES_ON_MENU %}
     {% for p in pages %}
-<li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+<li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a> zzz</li>
     {% endfor %}
 {% endif %}
 </ul>
